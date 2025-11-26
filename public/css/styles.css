@@ -1,0 +1,19 @@
+body {
+    width: 1000px;
+    margin: auto;
+    background-color: gray;
+}
+
+.left {
+    float: left;
+    width: 20%;
+    text-align: left;
+}
+
+#content {
+    padding: 10px;
+}
+
+#mainHeading {
+    width: 80%;
+}

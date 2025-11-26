@@ -1,0 +1,60 @@
+<!-- Head -->
+<%- include("partials/header.ejs") %>
+
+<body class="text-center">
+    <div id="content" class="bg-white">
+        <h1>Quote Finder</h1>
+        <hr>
+        <!-- Search By Keyword -->
+        <form action="/searchByKeyword" onsubmit="return validateKeyword()">
+            Keyword: 
+            <input id="keyword" type="text" name="keyword">
+            <button>Search by Keyword</button>
+    </form>
+    <span id="keywordError" class="text-danger"></span>
+
+    <br>
+
+        <!-- Search By Author -->
+        <form action="/searchByAuthor">
+        <select name="authorId">
+            <% for (author of authors) { %>
+                <option value="<%= author.authorId %>">
+                    <%= author.firstName %> <%= author.lastName %>
+                </option>
+            <% } %>
+        </select>
+        <button>Search by Author</button>
+    </form>
+
+    <br>
+
+        <!-- Search by Category -->
+        <form action="/searchByCategory">
+            <select name="category">
+                <% for (category of categories) { %>
+                    <option value="<%= category.category %>">
+                        <%= category.category %>
+                    </option>
+                <% } %>
+            </select>
+            <button>Search by Category</button>
+        </form>
+
+        <br>
+
+        <!-- Search by Likes -->
+        <form action="/searchByLikes" onsubmit="return validateLikes()">
+            Min: <input id="min" type="number" name="min">
+            Max: <input id="max" type="number" name="max">
+            <button>Search by Likes</button>
+        </form>
+        <span id="likesError" class="text-danger"></span>
+
+    <!-- Footer -->
+    <%- include("partials/footer.ejs") %>
+   </div>
+
+   <script src="/js/form-check.js"></script>
+</body>
+</html>
